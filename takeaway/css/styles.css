@@ -1,0 +1,108 @@
+:root {
+  --bg: hsl(0, 0%, 100%);
+  --fg: hsl(0, 0%, 20%);
+  --later: hsl(142, 83%, 42%);
+  --soon: hsl(35, 83%, 42%);
+  --very-soon: hsl(0, 83%, 42%);
+  --margin-top: 1rem;
+  --collapse-time: 500ms;
+  --collapse-transition:
+    margin var(--collapse-time),
+    max-height var(--collapse-time),
+    opacity var(--collapse-time);
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--fg);
+  font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+  background-color: var(--fg);
+  color: var(--bg);
+  font-weight: 500;
+  margin-top: 0;
+  padding: 6rem 3rem 3rem;
+}
+
+.list {
+  margin: 3rem;
+  list-style: none;
+}
+
+.place {
+  margin-top: 3rem;
+}
+
+*[hidden] {
+  display: none;
+}
+
+// .place:first-of-type {
+//   margin-top: 6rem;
+//   margin-bottom: 6rem;
+// }
+
+// .place:first-of-type .name {
+//   font-size: 2.25em;
+// }
+
+// .place:first-of-type .status{
+//   font-size: 1.5em;
+// }
+
+.name {
+  font-size: 1.5em;
+  font-weight: 500;
+}
+
+.status {
+  margin-top: var(--margin-top);
+}
+
+.action {
+  font-size: 1.4rem;
+  max-height: 1em;
+  margin-top: var(--margin-top);
+  overflow-y: hidden;
+  transition: var(--collapse-transition);
+}
+
+.contact {
+  max-height: calc((1em * 3.2) + var(--margin-top));
+  margin-top: var(--margin-top);
+  overflow-y: hidden;
+  transition: var(--collapse-transition);
+}
+
+.address {
+  // color: hsl(220, 75%, 50%);
+  color: var(--fg);
+  display: block;
+  text-decoration: none;
+}
+
+.phone {
+  // color: hsl(220, 75%, 50%);
+  color: var(--fg);
+  display: block;
+  margin-top: var(--margin-top);
+  text-decoration: none;
+}
+
+.updated {
+  font-size: 1.4rem;
+  margin: 3rem;
+  margin-top: 6rem;
+}
+
+.unavailable {
+  margin: 3rem;
+}
+
+.collapsed {
+  margin: 0;
+  max-height: 0;
+  opacity: 0;
+}
