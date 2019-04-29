@@ -5,11 +5,12 @@
 import {
   getPlaceStatus,
   // getRandomInt,
+  html,
   // isStringNumber,
   // JSONbin,
   randomizeArray,
   // shuffleArray,
-  xEl,
+  // xEl,
   // xStyleSheet,
 } from 'https://jsejcksn.github.io/js-modules/dist/bundle.js';
 
@@ -26,15 +27,15 @@ function createEntry (place) {
     else return '';
   }
 
-  const li = xEl.gen('li', {class: 'place'},
-    xEl.gen('h2', {class: 'name'}, place.name),
-    xEl.gen('div', {class: 'status'},
-      xEl.gen('p', {class: 'time'}, getTimeString()),
-      xEl.gen('p', {class: 'action collapsed'}, 'View more details'),
+  const li = html('li', {class: 'place'},
+    html('h2', {class: 'name'}, place.name),
+    html('div', {class: 'status'},
+      html('p', {class: 'time'}, getTimeString()),
+      html('p', {class: 'action collapsed'}, 'View more details'),
     ),
-    xEl.gen('div', {class: 'contact collapsed'},
-      xEl.gen('a', {class: 'address', href: place.url}, place.formatted_address),
-      xEl.gen('a', {class: 'phone', href: `tel:${place.international_phone_number.split(' ').join('').split('-').join('')}`}, place.international_phone_number),
+    html('div', {class: 'contact collapsed'},
+      html('a', {class: 'address', href: place.url}, place.formatted_address),
+      html('a', {class: 'phone', href: `tel:${place.international_phone_number.split(' ').join('').split('-').join('')}`}, place.international_phone_number),
     ),
   );
 
@@ -67,11 +68,11 @@ async function main () {
     const list = places.results;
 
     document.body.appendChild(
-      xEl.gen('h1', null, 'Available takeaway')
+      html('h1', null, 'Available takeaway')
     );
 
     const ul = document.body.appendChild(
-      xEl.gen('ul', {class: 'list'})
+      html('ul', {class: 'list'})
     );
 
     randomizeArray(list);
@@ -116,7 +117,7 @@ async function main () {
     };
 
     const updated = document.body.appendChild(
-      xEl.gen('div', {class: 'updated'}, `Place information updated at ${`${date.getHours()}`.padStart(2, '0')}:${`${date.getMinutes()}`.padStart(2, '0')} on ${date.getDate()} ${dateNames.months[date.getMonth()].slice(0, 3)} ${date.getFullYear()}`)
+      html('div', {class: 'updated'}, `Place information updated at ${`${date.getHours()}`.padStart(2, '0')}:${`${date.getMinutes()}`.padStart(2, '0')} on ${date.getDate()} ${dateNames.months[date.getMonth()].slice(0, 3)} ${date.getFullYear()}`)
     );
 
     if (
@@ -126,7 +127,7 @@ async function main () {
       updated.setAttribute('hidden', '');
 
       document.body.appendChild(
-        xEl.gen('h2', {class: 'unavailable'}, 'Nothing is available right now.')
+        html('h2', {class: 'unavailable'}, 'Nothing is available right now.')
       );
     }
   }
