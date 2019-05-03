@@ -12,7 +12,7 @@ import {
   // shuffleArray,
   // xEl,
   // xStyleSheet,
-} from 'https://jsejcksn.github.io/js-modules/dist/bundle.js';
+} from 'https://jsejcksn.github.io/js-modules/dist/bundles/bundle-1.1.0.js';
 
 function createEntry (place) {
   const status = getPlaceStatus(place);
